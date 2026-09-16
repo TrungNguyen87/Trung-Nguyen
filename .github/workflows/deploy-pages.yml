@@ -47,15 +47,24 @@ jobs:
         run: python3 tools/check_precache.py
 
       - name: Configure Pages
+        id: pages
+        continue-on-error: true
         uses: actions/configure-pages@v5
         with:
-          enablement: true
+          enablement: false
 
       - name: Upload the web folder
+        if: ${{ steps.pages.conclusion == 'success' }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: web
 
       - name: Deploy
+        if: ${{ steps.pages.conclusion == 'success' }}
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Skip deploy when Pages is unavailable
+        if: ${{ steps.pages.conclusion != 'success' }}
+        run: |
+          echo "::warning::GitHub Pages is not enabled or cannot be configured by GITHUB_TOKEN in this repository. Skipping deploy."
