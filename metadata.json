@@ -1,0 +1,8 @@
+{
+  "name": "Remix Kid_math_game_web",
+  "description": "Kids math games for Groep 6 & 7 with level tracking, progress persistence, and multiplayer competition mode.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,59 @@
+name: Deploy to GitHub Pages
+
+# Publishes web/ to GitHub Pages on every push to main, and on demand from the
+# Actions tab. Nothing is built: the app is plain HTML/CSS/ES modules, so this
+# workflow only stamps a version into the service worker and uploads the folder.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time. `cancel-in-progress: false` so a queued deploy finishes
+# rather than being dropped - a half-published site is worse than a slow one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Stamp the build id into the service worker
+        # The service worker names its cache after this value. Without a fresh
+        # id, a child who installed the app keeps the old cached copy forever;
+        # with the commit SHA, every deploy invalidates the cache exactly once.
+        run: |
+          sed -i "s/__BUILD_ID__/${GITHUB_SHA::12}/" web/sw.js
+          grep -n 'const BUILD_ID' web/sw.js
+
+      - name: Verify the service worker precache list is complete
+        # A file missing from PRECACHE only fails later, offline, in front of a
+        # child. Catch it here instead.
+        run: python3 tools/check_precache.py
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the web folder
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

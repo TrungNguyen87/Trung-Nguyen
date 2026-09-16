@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Reken Spelletjes voor Groep 6 &amp; 7</title>
+    <meta
+      name="description"
+      content="Gratis reken-spelletjes voor groep 6 en 7: tafels, breuken, procenten, meten, meetkunde, algebra en logica. Werkt offline, zonder account."
+    />
+    <meta name="theme-color" content="#ff7043" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Installable on a tablet's home screen; see sw.js for the offline cache. -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Reken Spelletjes" />
+
+    <link rel="stylesheet" href="./css/app.css" />
+    <!-- The first game module is fetched the moment the router resolves, so
+         warm the connection while the CSS is still parsing. -->
+    <link rel="modulepreload" href="./js/main.js" />
+    <link rel="modulepreload" href="./js/i18n.js" />
+    <link rel="modulepreload" href="./js/i18n-data.js" />
+    <link rel="modulepreload" href="./js/state.js" />
+  </head>
+  <body>
+    <a class="kmg-skiplink" href="#kmg-main">Naar de inhoud</a>
+    <div id="app">
+      <!-- Replaced by the app as soon as main.js runs. Without it the page is
+           blank white for the length of one module download, which on school
+           wifi reads as "broken". -->
+      <div id="kmg-boot" class="kmg-boot">
+        <div class="kmg-boot-logo">🎮</div>
+        <p class="kmg-boot-text">Reken Spelletjes wordt geladen…</p>
+        <noscript>
+          <p class="kmg-boot-text">
+            Deze spelletjes hebben JavaScript nodig. Zet JavaScript aan in je browser en
+            laad de pagina opnieuw.
+          </p>
+        </noscript>
+      </div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

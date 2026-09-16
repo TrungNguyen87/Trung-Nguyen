@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Reken Spelletjes">
+  <title>Reken Spelletjes</title>
+  <defs>
+    <linearGradient id="bgm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb300"/>
+      <stop offset="1" stop-color="#ff7043"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Maskable variant: the background is full-bleed (Android crops it to
+       whatever shape the launcher uses) and the glyphs are scaled to ~64% and
+       centred, so they stay inside the safe zone under a circle mask. -->
+  <rect width="512" height="512" fill="url(#bgm)"/>
+  <g transform="translate(256 256) scale(0.64) translate(-256 -256)">
+    <g stroke="#ffffff" stroke-width="30" stroke-linecap="round" fill="none">
+      <path d="M104 168 H208 M156 116 V220"/>
+      <path d="M304 168 H408"/>
+      <path d="M118 306 L194 382 M194 306 L118 382"/>
+    </g>
+    <g fill="#ffffff">
+      <rect x="304" y="329" width="104" height="30" rx="15"/>
+      <circle cx="356" cy="292" r="19"/>
+      <circle cx="356" cy="396" r="19"/>
+    </g>
+  </g>
+</svg>

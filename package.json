@@ -1,0 +1,23 @@
+{
+  "name": "kids-math-games-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static web build of the Reken Spelletjes maths games, deployed to GitHub Pages.",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo 'Build complete'",
+    "check:precache": "node tools/run-check-precache.mjs",
+    "start": "node server.js",
+    "lint": "node --check server.js && node --check web/js/main.js",
+    "test": "node --test \"tests/web/test_*.mjs\"",
+    "test:smoke": "node tests/web/smoke.mjs http://127.0.0.1:3000"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "ws": "^8.21.3"
+  }
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Reken Spelletjes">
+  <title>Reken Spelletjes</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb300"/>
+      <stop offset="1" stop-color="#ff7043"/>
+    </linearGradient>
+  </defs>
+
+  <!-- A rounded square rather than a full-bleed one: it keeps its shape when a
+       phone masks the icon into a circle, and stays legible at 32px. -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+
+  <!-- The four operators in a 2x2 grid. At tab size the grid still reads as
+       "maths" even when the individual glyphs blur together. -->
+  <g stroke="#ffffff" stroke-width="30" stroke-linecap="round" fill="none">
+    <!-- plus -->
+    <path d="M104 168 H208 M156 116 V220"/>
+    <!-- minus -->
+    <path d="M304 168 H408"/>
+    <!-- times -->
+    <path d="M118 306 L194 382 M194 306 L118 382"/>
+  </g>
+  <!-- divide: a bar with a dot above and below -->
+  <g fill="#ffffff">
+    <rect x="304" y="329" width="104" height="30" rx="15"/>
+    <circle cx="356" cy="292" r="19"/>
+    <circle cx="356" cy="396" r="19"/>
+  </g>
+</svg>

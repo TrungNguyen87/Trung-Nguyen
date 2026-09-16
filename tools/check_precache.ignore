@@ -1,0 +1,4 @@
+# Paths under web/ that are intentionally excluded from manual PRECACHE checks.
+sw.js
+asset-manifest.json
+precache-manifest.*

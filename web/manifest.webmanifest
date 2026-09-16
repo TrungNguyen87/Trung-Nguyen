@@ -1,0 +1,60 @@
+{
+  "name": "Reken Spelletjes voor Groep 6 & 7",
+  "short_name": "Reken Spelletjes",
+  "description": "Gratis reken-spelletjes voor groep 6 en 7: tafels, breuken, procenten, meten, meetkunde, algebra en logica. Werkt offline, zonder account.",
+  "lang": "nl",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fff7f0",
+  "theme_color": "#ff7043",
+  "categories": ["education", "games", "kids"],
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Bliksemronde",
+      "short_name": "Bliksem",
+      "url": "./index.html#/bliksemronde",
+      "icons": [{ "src": "./icons/icon-256.png", "sizes": "256x256" }]
+    },
+    {
+      "name": "Tafel Monster",
+      "short_name": "Tafels",
+      "url": "./index.html#/tafel",
+      "icons": [{ "src": "./icons/icon-256.png", "sizes": "256x256" }]
+    },
+    {
+      "name": "Ouder Dashboard",
+      "short_name": "Dashboard",
+      "url": "./index.html#/dashboard",
+      "icons": [{ "src": "./icons/icon-256.png", "sizes": "256x256" }]
+    }
+  ]
+}
